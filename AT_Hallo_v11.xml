@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow_WorkflowDefinition apiMode="0" config="&lt;configuration />"
+    description="" inputs="&lt;inputs />" interactive="1"
+    isHtmlDescription="0" name="AT_Hallo" outputs="&lt;outputs />"
+    revision="$Revision:  $"
+    uniqueGuid="82724e24-9463-4c6c-9e2d-643839c2204b"
+    variables="&lt;variables>&lt;strHallo class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>Hi Chris&lt;/strHallo>&lt;strHese class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>Hallo Hese&lt;/strHese>&lt;/variables>"
+    webHidden="0" workflowId="0">
+    <schema>
+        <outputs className="" name="outputs" type=""/>
+        <variables attribute="0" className="" name="variables" type="">
+            <children attribute="0" className="java.lang.String"
+                controlType="0" defaultValue="" displayName=""
+                documentation="" hidden="0" inputType="java.lang.String"
+                listType="0" name="strHallo" readOnly="0" type="{http://www.w3.org/2001/XMLSchema}string"/>
+            <children attribute="0" className="java.lang.String"
+                controlType="0" defaultValue="" displayName=""
+                documentation="" hidden="0" inputType="java.lang.String"
+                listType="0" name="strHese" readOnly="0" type="{http://www.w3.org/2001/XMLSchema}string"/>
+        </variables>
+        <inputs className="" name="inputs" type=""/>
+        <config className="" name="" type=""/>
+    </schema>
+    <Start commented="0" continueOnFailure="0" created="0"
+        description="" displayName="Start" height="36" interactive="0"
+        jobMode="0" name="Start" originalStyle="" skipAttempt="0"
+        style="image;image=/images/jgraphx/house.png"
+        uniqueName="Start_1" waitSetting="0" width="55" x="22" y="32">
+        <inputs val="&lt;inputs />"/>
+        <transition activity="InformationalMessage_1" commented="0"
+            originalStyle="" points="" sourceX="49" sourceY="50"
+            status="0" style="defaultEdge" targetX="393" targetY="63"
+            transitionIndex="0" x="0" y="0">
+            <condition language="1" script="/*&#xa;The expression should return a boolean. Use the variable name &quot;activity&quot; to refer to the previous activity object. Example:&#xa;activity.exitCode==0;&#xa;*/&#xa;"/>
+        </transition>
+    </Start>
+    <Activity commented="0" continueOnFailure="0"
+        created="1512029905462"
+        description="displays an informational message to the user"
+        displayName="IM_Chris" height="34" interactive="0" jobMode="0"
+        name="InformationalMessage"
+        namespaceUri="commvault.cte.workflow.activities"
+        originalStyle="" skipAttempt="0"
+        style="label;image=commvault.cte.workflow.activities.InteractiveMessageActivity"
+        uniqueName="InformationalMessage_1" waitSetting="0" width="157"
+        x="368" y="39">
+        <inputs val="&lt;inputs>&lt;message>xpath:{/workflow/variables/strHallo}&lt;/message>&lt;dialogType>Popup&lt;/dialogType>&lt;iconType>Information&lt;/iconType>&lt;title />&lt;html>false&lt;/html>&lt;actions>&lt;name>OK&lt;/name>&lt;validateForm>true&lt;/validateForm>&lt;/actions>&lt;formProperties />&lt;/inputs>"/>
+        <activitySchema>
+            <outputs className="" defaultValue="" listType="0"
+                name="outputs" type="">
+                <children attribute="0" className="java.lang.String"
+                    defaultValue="" hidden="0"
+                    inputType="java.lang.String" listType="0"
+                    name="actionSelected" type="{http://www.w3.org/2001/XMLSchema}string"/>
+            </outputs>
+            <inputs className="" defaultValue="" listType="0"
+                name="inputs" type=""/>
+        </activitySchema>
+        <transition activity="InformationalMessage_3" commented="0"
+            originalStyle="" points="" sourceX="446" sourceY="56"
+            status="3" style="defaultEdge" targetX="533" targetY="183"
+            transitionIndex="0" x="0" y="0">
+            <condition language="1" script="/*&#xa;The expression should return a boolean. Use the variable name &quot;activity&quot; to refer to the previous activity object. Example:&#xa;activity.exitCode==0;&#xa;*/&#xa;"/>
+        </transition>
+    </Activity>
+    <Activity commented="0" continueOnFailure="0"
+        created="1512030712845"
+        description="displays an informational message to the user"
+        displayName="IM_Hese" height="34" interactive="0" jobMode="0"
+        name="InformationalMessage"
+        namespaceUri="commvault.cte.workflow.activities"
+        originalStyle="" skipAttempt="0"
+        style="label;image=commvault.cte.workflow.activities.InteractiveMessageActivity"
+        uniqueName="InformationalMessage_3" waitSetting="0" width="157"
+        x="455" y="166">
+        <inputs val="&lt;inputs>&lt;message>xpath:{/workflow/variables/strHese}&lt;/message>&lt;dialogType>Popup&lt;/dialogType>&lt;iconType>Information&lt;/iconType>&lt;title />&lt;html>false&lt;/html>&lt;formProperties />&lt;/inputs>"/>
+        <activitySchema>
+            <outputs className="" defaultValue="" listType="0"
+                name="outputs" type="">
+                <children attribute="0" className="java.lang.String"
+                    defaultValue="" hidden="0"
+                    inputType="java.lang.String" listType="0"
+                    name="actionSelected" type="{http://www.w3.org/2001/XMLSchema}string"/>
+            </outputs>
+            <inputs className="" defaultValue="" listType="0"
+                name="inputs" type=""/>
+        </activitySchema>
+    </Activity>
+</Workflow_WorkflowDefinition>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow_WorkflowDefinition apiMode="0" config="&lt;configuration />"
+    description=""
+    inputs="&lt;inputs>&lt;cvltClientName class=&quot;commvault.msgs.CvEntities.ClientEntity&quot; _list_=&quot;false&quot;>&lt;clientName>EDGE&lt;/clientName>&lt;clientId>1008&lt;/clientId>&lt;/cvltClientName>&lt;/inputs>"
+    interactive="1" isHtmlDescription="0" name="AT_ReleaseLicense"
+    outputs="&lt;outputs />" revision="$Revision:  $"
+    uniqueGuid="543b7b59-9719-48b5-b313-8201b20dd79d"
+    variables="&lt;variables />" webHidden="0" workflowId="0">
+    <schema>
+        <outputs className="" name="outputs" type=""/>
+        <variables className="" name="variables" type=""/>
+        <inputs attribute="0" className="" name="inputs" type="">
+            <children attribute="0"
+                className="commvault.msgs.CvEntities.ClientEntity"
+                controlType="2" defaultValue="" displayName=""
+                documentation="" hidden="0"
+                inputType="commvault.msgs.CvEntities.ClientEntity"
+                listType="0" name="cvltClientName" readOnly="0" type="{commvault.msgs.CvEntities}ClientEntity">
+                <children attribute="0" className="java.lang.String"
+                    defaultValue="" inputType="java.lang.String"
+                    listType="0" name="clientName" type="{http://www.w3.org/2001/XMLSchema}string"/>
+                <children attribute="0" className="java.lang.Integer"
+                    defaultValue="" inputType="java.lang.Integer"
+                    listType="0" name="clientId" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+            </children>
+        </inputs>
+        <config className="" name="" type=""/>
+    </schema>
+    <Start commented="0" continueOnFailure="0" created="0"
+        description="" displayName="Start" height="36" interactive="0"
+        jobMode="0" name="Start" originalStyle="" skipAttempt="0"
+        style="image;image=/images/jgraphx/house.png"
+        uniqueName="Start_1" waitSetting="0" width="55" x="45" y="41">
+        <inputs val="&lt;inputs />"/>
+        <transition activity="Execute_2" commented="0" originalStyle=""
+            status="0" style="defaultEdge" transitionIndex="0" x="0" y="0">
+            <condition script="/*&#xa;The expression should return a boolean. Use the variable name &quot;activity&quot; to refer to the previous activity object. Example:&#xa;activity.exitCode==0;&#xa;*/&#xa;"/>
+        </transition>
+    </Start>
+    <Activity commented="0" continueOnFailure="0"
+        created="1512031447528" description="" displayName="Execute"
+        height="34" interactive="0" jobMode="0" name="Execute"
+        namespaceUri="commvault.cte.workflow.activities.cmd.operation"
+        originalStyle="" skipAttempt="0"
+        style="label;image=commvault.cte.workflow.activities.cmd.operation.OperationExecute"
+        uniqueName="Execute_2" waitSetting="0" width="100" x="228" y="116">
+        <inputs val="&lt;inputs>&lt;inputXml class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&amp;lt;TMMsg_ReleaseLicenseReq isClientLevelOperation=&quot;1&quot;&amp;gt;&amp;#xD;&#xd;&#xa;  &amp;lt;clientEntity _type_=&quot;CLIENT_ENTITY&quot; clientName=&quot;xpath:{/workflow/inputs/cvltClientName/clientName}&quot; hostName=&quot;&quot; /&amp;gt;&amp;#xD;&#xd;&#xa;  &amp;lt;licenseTypes appType=&quot;0&quot; licenseType=&quot;0&quot; licenseName=&quot;0&quot; /&amp;gt;&amp;#xD;&#xd;&#xa;&amp;lt;/TMMsg_ReleaseLicenseReq&amp;gt;&lt;/inputXml>&lt;escapeXml class=&quot;java.lang.Boolean&quot; _list_=&quot;false&quot;>false&lt;/escapeXml>&lt;commandArgs class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/commandArgs>&lt;sessionOptions class=&quot;workflow.types.cmd.SessionOptions&quot; _list_=&quot;false&quot;>&lt;useImpersonatedAccount class=&quot;java.lang.Boolean&quot; _list_=&quot;false&quot;>true&lt;/useImpersonatedAccount>&lt;tokenFile class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/tokenFile>&lt;token class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/token>&lt;/sessionOptions>&lt;/inputs>"/>
+        <transition activity="InformationalMessage_1" commented="0"
+            originalStyle="" status="0" style="defaultEdge"
+            transitionIndex="0" x="0" y="0">
+            <condition script="/*&#xa;The expression should return a boolean. Use the variable name &quot;activity&quot; to refer to the previous activity object. Example:&#xa;activity.exitCode==0;&#xa;*/&#xa;"/>
+        </transition>
+    </Activity>
+    <Activity commented="0" continueOnFailure="0"
+        created="1512031840600"
+        description="displays an informational message to the user"
+        displayName="InformationalMessage" height="34" interactive="0"
+        jobMode="0" name="InformationalMessage"
+        namespaceUri="commvault.cte.workflow.activities"
+        originalStyle="" skipAttempt="0"
+        style="label;image=commvault.cte.workflow.activities.InteractiveMessageActivity"
+        uniqueName="InformationalMessage_1" waitSetting="0" width="157"
+        x="486" y="132">
+        <inputs val="&lt;inputs>&lt;message>xpath:{/workflow/Execute_2/commandOutput}&lt;/message>&lt;dialogType>Popup&lt;/dialogType>&lt;iconType>Information&lt;/iconType>&lt;title />&lt;html>false&lt;/html>&lt;formProperties />&lt;/inputs>"/>
+        <activitySchema>
+            <outputs className="" defaultValue="" listType="0"
+                name="outputs" type="">
+                <children attribute="0" className="java.lang.String"
+                    defaultValue="" displayName="" hidden="0"
+                    inputType="java.lang.String" listType="0"
+                    name="actionSelected" type="{http://www.w3.org/2001/XMLSchema}string"/>
+            </outputs>
+            <inputs className="" defaultValue="" listType="0"
+                name="inputs" type=""/>
+        </activitySchema>
+    </Activity>
+</Workflow_WorkflowDefinition>
